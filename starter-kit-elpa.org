@@ -48,7 +48,7 @@ The following packages will be downloaded and installed.
                                 'pos-tip
                                 'powerline
                                 'python-mode
-                                'ipython
+                                ;;’ipython
                                 'jedi
                                 'redo+
                                 ;; 'ruby-mode
@@ -57,7 +57,7 @@ The following packages will be downloaded and installed.
                                 'solarized-theme
                                 'tango-2-theme
                                 'textmate
-                                'typopunct
+                                ;;’typopunct
                                 'visual-regexp
                                 'yaml-mode
                                 'yasnippet
