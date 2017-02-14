@@ -16,6 +16,7 @@ The following packages will be downloaded and installed.
                                 ;;'auto-complete
                                 ;;'ac-emmet
                                 ;;'ac-etags
+                                'ace-jump-mode
                                 ;;'ac-ispell
                                 'org-ac
                                 'browse-kill-ring

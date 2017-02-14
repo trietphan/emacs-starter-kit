@@ -1,7 +1,7 @@
 #+TITLE: Local User Customizations
 #+OPTIONS: toc:nil num:nil ^:nil
 
-* Starter Kit kjhealy
+* Starter Kit TrietPhan
 This file contains local customizations---ones that in some cases
 you will not be able to just drop in and use because, e.g., they
 involve references to particular files on my own machine. It's
@@ -20,12 +20,12 @@ To use the customizations here yourself, /you must change the name of
  loaded properly. To find the current value of these variables on your
  system, launch emacs and do =C-h-v system-name [RET]= or =C-h-v
  user-login-name [RET]=. For example, on my system =user-login-name=
- is 'kjhealy', so this file is named =kjhealy.org=, and when Emacs
- starts up with the starter kit it creates the file =kjhealy.el=.
+ is 'TrietPhan', so this file is named =TrietPhan.org=, and when Emacs
+ starts up with the starter kit it creates the file =TrietPhan.el=.
  
 You will also need to change the values for the location of bibtex
  databases, pandoc and orgmode-mobile specified below, and some other
- settings. *Search for 'kjhealy' in this file* to find the paths that
+ settings. *Search for 'TrietPhan' in this file* to find the paths that
  need to be updated. Change them as needed or delete them if you don't
  need these features. 
 
@@ -41,17 +41,22 @@ OS X ships with BSD's ls command which doesn't have all the features of GNU ls (
 #+source: gnu-ls
 #+begin_src emacs-lisp 
 
-(setq insert-directory-program (executable-find "gls"))
+  (setq insert-directory-program (executable-find "gls"))
 
 #+end_src
 
-*** One space after period
+*** One space after period and global line numbers
 
 Use `M-e` for sentence-level navigation, but without having to put two spaces after a period like an animal.  
 
 #+source: periods
 #+begin_src emacs-lisp
   (setq sentence-end-double-space nil)
+#+end_src
+
+#+source: global line numbers
+#+begin_src emacs-lisp
+  (global-linum-mode t)
 #+end_src
 
 *** Color Theme Tweaks
@@ -142,6 +147,21 @@ In dired mode, visit all marked files using. Bound to the "F" key.
 (add-hook 'dired-mode-hook 'stripe-listify-buffer)  
 #+end_src
 
+*** Indention
+#+name: indent
+#+begin_src emacs-lisp
+  (setq tab-width 2
+    indent-tabs-mode nil)
+  (setq-default indent-tabs-mode nil)
+  (global-set-key (kbd "RET") 'newline-and-indent)
+#+end_src
+
+*** Jump-char mode
+#+name: jump-char
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-c SPC") 'ace-jump-char-mode)
+#+end_src 
+
 ** Local LaTeX settings
 *** In-text Smart Quotes (XeLaTeX only)
     Redefine TeX-open-quote and TeX-close-quote to be smart quotes by default. Below, in the local org-mode settings, we'll also map the relevant function to a key we can use in org-mode, too. If you don't use XeLaTeX for processing all your =.tex= files, you should disable this option.
@@ -185,11 +205,11 @@ Tell RefTeX where the bibliography files are.
 #+begin_src emacs-lisp    
     ;; Make RefTex able to find my local bib files
     (setq reftex-bibpath-environment-variables
-    '("/Users/kjhealy/Library/texmf/bibtex/bib"))
+    '("/Users/TrietPhan/Library/texmf/bibtex/bib"))
 
     ;; Default bibliography
     (setq reftex-default-bibliography
-    '("/Users/kjhealy/Documents/bibs/socbib.bib"))
+    '("/Users/TrietPhan/Documents/bibs/socbib.bib"))
 #+end_src
 
 *** Local vc commands
